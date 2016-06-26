@@ -1,0 +1,28 @@
+%p#notice= notice
+%h1 Listing Rsvps
+%table
+  %thead
+    %tr
+      %th Email
+      %th Name
+      %th Code
+      %th Coming
+      %th Overnight
+      %th Additional guest
+      %th Message
+      %th{:colspan => "3"}
+  %tbody
+    - @rsvps.each do |rsvp|
+      %tr
+        %td= rsvp.email
+        %td= rsvp.name
+        %td= rsvp.code
+        %td= rsvp.coming
+        %td= rsvp.overnight
+        %td= rsvp.additional_guest
+        %td= rsvp.message
+        %td= link_to 'Show', rsvp
+        %td= link_to 'Edit', edit_rsvp_path(rsvp)
+        %td= link_to 'Destroy', rsvp, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Rsvp', new_rsvp_path

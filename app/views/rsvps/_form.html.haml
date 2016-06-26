@@ -1,0 +1,11 @@
+= simple_form_for(@rsvp) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email
+    = f.input :name
+    = f.input :coming, inline_label: 'Will you be attending?'
+    = f.input :overnight, inline_label: 'Will you be staying overnight?'
+    = f.input :additional_guest, label: 'Are you bringing anyone with you?'
+    = f.input :message, label: 'Got any special messages for us?', input_html: { rows: 10 }
+  .form-actions.text-right
+    = f.button :submit, 'Submit RSVP', class: 'btn btn-primary'

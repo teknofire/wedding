@@ -1,0 +1,36 @@
+.text-center
+  %h1
+    Thank you #{@rsvp.name}!
+    %br/
+    %small Your RSVP response has been saved
+
+  - if @rsvp.coming?
+    %p We are look forward to seeing you there
+
+
+  %br/
+  .row
+    .col-sm-3.col-sm-offset-3
+      = link_to 'Update RSVP', edit_rsvp_path(@rsvp), class: 'btn btn-default btn-block'
+    .col-sm-3
+      = link_to 'Return to the invitation', root_url(code: @rsvp.slug), class: 'btn btn-primary btn-block'
+
+%br/
+
+%dl.dl-horizontal
+  %dt Name
+  %dd= @rsvp.name
+  %dt Email
+  %dd= @rsvp.email
+  %dt Attending?
+  %dd= @rsvp.coming? ? 'Yes' : 'No'
+  %dt Overnight?
+  %dd= @rsvp.overnight? ? 'Yes' : 'No'
+  - unless @rsvp.additional_guest.blank?
+    %dt Guest?
+    %dd= @rsvp.additional_guest
+  - unless @rsvp.message.blank?
+    %dt Message
+    %dd
+      :markdown
+        #{@rsvp.message}
