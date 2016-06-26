@@ -6,11 +6,6 @@ class RsvpsControllerTest < ActionController::TestCase
     session[:registration_code] = @rsvp.slug
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
-
   test "should get new" do
     session[:registration_code] = nil
 
@@ -51,6 +46,6 @@ class RsvpsControllerTest < ActionController::TestCase
       delete :destroy, id: @rsvp
     end
 
-    assert_redirected_to rsvps_path
+    assert_redirected_to root_path
   end
 end

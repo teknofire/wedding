@@ -1,0 +1,9 @@
+%h1 You are invited
+%h2 To the Wedding of William Fisher & Geraldine Miller
+%h3 October 10th, 2016 - Chena Hot Springs - Fairbanks, Alaska
+
+%br/
+- if current_rsvp.present?
+  = link_to 'Update RSVP?', edit_rsvp_path, class: 'btn btn-default btn-lg'
+- else
+  = link_to 'RSVP', new_rsvp_path, class: 'btn btn-default btn-lg'

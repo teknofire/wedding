@@ -1,15 +1,10 @@
 class RsvpsController < ApplicationController
   before_action :set_rsvp#, only: [:show, :edit, :update, :destroy]
 
-  # GET /rsvps
-  # GET /rsvps.json
-  def index
-    render layout: 'welcome'
-  end
-
   # GET /rsvps/1
   # GET /rsvps/1.json
   def show
+    render layout: 'welcome'
   end
 
   # GET /rsvps/new
@@ -60,7 +55,7 @@ class RsvpsController < ApplicationController
   def destroy
     @rsvp.destroy
     respond_to do |format|
-      format.html { redirect_to rsvps_url, notice: 'Rsvp was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Rsvp was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,36 +1,46 @@
-.text-center
-  %h1
-    Thank you #{@rsvp.name}!
-    %br/
-    %small Your RSVP response has been saved
+#intro.introduction{ class: 'thanks' }
+  .cover
+    .row.text
+      .col-md-8.col-md-offset-2.text-center
+        - if current_rsvp.present?
+          = render 'thanks'
+        - else
+          = render 'invitation'
 
-  - if @rsvp.coming?
-    %p We are look forward to seeing you there
+#details.wedding-details
+  .cover
+    .row.text
+      .col-md-8.col-md-offset-2
 
+        %h2 Wedding details
+        %p
+          We will be having our wedding at
+          = link_to 'Chena Hot Springs Resort', 'http://www.chenahotsprings.com/'
+          (#{link_to 'map', root_url + '#map'})
+        %h2 When & Where:
+        %p
+          Oct. 10th, 2016 - 10:00am
+          %br/
+          Chena Hot Springs Resort
+          %br/
+          Chena Room
+          %br/
 
-  %br/
-  .row
-    .col-sm-3.col-sm-offset-3
-      = link_to 'Update RSVP', edit_rsvp_path(@rsvp), class: 'btn btn-default btn-block'
-    .col-sm-3
-      = link_to 'Return to the invitation', root_url(code: @rsvp.slug), class: 'btn btn-primary btn-block'
+          * Brunch will be provided
 
-%br/
+        %h2 After:
+        %p
+          Please feel free to stay longer and take part in the available activies at the resort.
+          .text-center
+            %ul.nav
+              %li= link_to 'Summer', 'http://www.chenahotsprings.com/summer-activities/'
+              %li= link_to 'Winter', 'http://www.chenahotsprings.com/winter-activities/'
 
-%dl.dl-horizontal
-  %dt Name
-  %dd= @rsvp.name
-  %dt Email
-  %dd= @rsvp.email
-  %dt Attending?
-  %dd= @rsvp.coming? ? 'Yes' : 'No'
-  %dt Overnight?
-  %dd= @rsvp.overnight? ? 'Yes' : 'No'
-  - unless @rsvp.additional_guest.blank?
-    %dt Guest?
-    %dd= @rsvp.additional_guest
-  - unless @rsvp.message.blank?
-    %dt Message
-    %dd
-      :markdown
-        #{@rsvp.message}
+        #registry.registry
+          %h2 Gift Registry
+
+          .text-center
+            = link_to 'https://www.amazon.com/wedding/geraldine-miller-william-fisher-chena-hot-springs-october-2016/registry/2UYOPEP6OGCBY' do
+              = image_tag 'amazon.png'
+
+%iframe#map{ src:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1395.600041939964!2d-146.05917789344707!3d65.05297430049441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5133d8acb8f60ccb%3A0x3b69840ff86f3f06!2sChena+Hot+Springs+Resort!5e0!3m2!1sen!2sus!4v1466890871019", frameborder:0, style: "border:0; width: 100%; height: 600px;",  allowfullscreen: true }

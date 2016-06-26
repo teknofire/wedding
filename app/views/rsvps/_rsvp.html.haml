@@ -1,0 +1,17 @@
+%dl.dl-horizontal.text-left{ style: 'margin-top: 50px;' }
+  %dt Name
+  %dd= @rsvp.name
+  %dt Email
+  %dd= @rsvp.email
+  %dt Attending?
+  %dd= @rsvp.coming? ? 'Yes' : 'No'
+  %dt Overnight?
+  %dd= @rsvp.overnight? ? 'Yes' : 'No'
+  - unless @rsvp.additional_guest.blank?
+    %dt Guest?
+    %dd= @rsvp.additional_guest
+  - unless @rsvp.message.blank?
+    %dt Message
+    %dd
+      :markdown
+        #{@rsvp.message}

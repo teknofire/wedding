@@ -1,0 +1,12 @@
+%h1
+  Thank you!
+%h2 Your RSVP response has been saved
+
+- if @rsvp.coming?
+  %p We're looking forward to seeing you there
+
+
+%br/
+= link_to 'Update RSVP', edit_rsvp_path, class: 'btn btn-default'
+
+= render @rsvp

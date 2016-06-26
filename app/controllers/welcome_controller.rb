@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    redirect_to rsvps_path if current_rsvp
+    redirect_to rsvp_path if current_rsvp
   end
 end
