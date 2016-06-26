@@ -16,7 +16,7 @@ class RsvpsController < ApplicationController
   # GET /rsvps/new
   def new
     if @rsvp.present?
-      redirect_to @rsvp
+      redirect_to edit_rsvp_path(@rsvp)
     else
       @rsvp = Rsvp.new
     end

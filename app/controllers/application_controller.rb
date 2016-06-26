@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   def current_rsvp
     Rsvp.friendly.find(session[:registration_code])
+  rescue ActiveRecord::RecordNotFound
   end
   helper_method :current_rsvp
 end

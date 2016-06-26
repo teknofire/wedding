@@ -3,7 +3,7 @@
 one:
   email: MyString
   name: MyString
-  code: MyString
+  slug: 12345
   coming: false
   overnight: false
   additional_guest: MyString
@@ -12,7 +12,7 @@ one:
 two:
   email: MyString
   name: MyString
-  code: MyString
+  slug: 54321
   coming: false
   overnight: false
   additional_guest: MyString

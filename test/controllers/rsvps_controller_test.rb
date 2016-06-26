@@ -3,17 +3,24 @@ require 'test_helper'
 class RsvpsControllerTest < ActionController::TestCase
   setup do
     @rsvp = rsvps(:one)
+    session[:registration_code] = @rsvp.slug
   end
 
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:rsvps)
+    assert_redirected_to root_url
   end
 
   test "should get new" do
+    session[:registration_code] = nil
+
     get :new
     assert_response :success
+  end
+
+  test "should redirect to edit" do
+    get :new
+    assert_redirected_to edit_rsvp_path(@rsvp)
   end
 
   test "should create rsvp" do
