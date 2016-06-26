@@ -1,0 +1,51 @@
+#intro.introduction
+  .cover
+    .row.text
+      .col-md-8.col-md-offset-2.text-center
+        %h1 You are invited
+        %h2 To the Wedding of William Fisher & Geraldine Miller
+        %h3 October 10th, 2016 - Chena Hot Springs - Fairbanks, Alaska
+
+        %br/
+        - if current_rsvp.present?
+          = link_to 'Update RSVP?', edit_rsvp_path(current_rsvp), class: 'btn btn-default btn-lg'
+        - else
+          = link_to 'RSVP', new_rsvp_path, class: 'btn btn-default btn-lg'
+
+#details.wedding-details
+  .cover
+    .row.text
+      .col-md-8.col-md-offset-2
+
+        %h2 Wedding details
+        %p
+          We will be having our wedding at
+          = link_to 'Chena Hot Springs Resort', 'http://www.chenahotsprings.com/'
+          (#{link_to 'map', root_url + '#map'})
+        %h2 When & Where:
+        %p
+          Oct. 10th, 2016 - 10:00am
+          %br/
+          Chena Hot Springs Resort
+          %br/
+          Chena Room
+          %br/
+
+          * Brunch will be provided
+
+        %h2 After:
+        %p
+          Please feel free to stay longer and take part in the available activies at the resort.
+          .text-center
+            %ul.nav
+              %li= link_to 'Summer', 'http://www.chenahotsprings.com/summer-activities/'
+              %li= link_to 'Winter', 'http://www.chenahotsprings.com/winter-activities/'
+
+        #registry.registry
+          %h2 Gift Registry
+
+          .text-center
+            = link_to 'https://www.amazon.com/wedding/geraldine-miller-william-fisher-chena-hot-springs-october-2016/registry/2UYOPEP6OGCBY' do
+              = image_tag 'amazon.png'
+
+%iframe#map{ src:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1395.600041939964!2d-146.05917789344707!3d65.05297430049441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5133d8acb8f60ccb%3A0x3b69840ff86f3f06!2sChena+Hot+Springs+Resort!5e0!3m2!1sen!2sus!4v1466890871019", frameborder:0, style: "border:0; width: 100%; height: 600px;",  allowfullscreen: true }

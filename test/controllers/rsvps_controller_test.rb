@@ -8,7 +8,7 @@ class RsvpsControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
-    assert_redirected_to root_url
+    assert_response :success
   end
 
   test "should get new" do

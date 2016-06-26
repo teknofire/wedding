@@ -4,8 +4,7 @@ class RsvpsController < ApplicationController
   # GET /rsvps
   # GET /rsvps.json
   def index
-    # @rsvps = Rsvp.all
-    redirect_to root_url
+    render layout: 'welcome'
   end
 
   # GET /rsvps/1
