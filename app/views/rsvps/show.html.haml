@@ -1,6 +1,6 @@
-#intro.introduction{ class: 'thanks' }
+#intro.introduction{ class: current_rsvp.present? ? 'thanks' : '' }
   .cover
-    .container
+    .container.text
       - if current_rsvp.present?
         = render 'thanks'
       - else
