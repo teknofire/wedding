@@ -1,10 +1,11 @@
 class RsvpsController < ApplicationController
-  before_action :set_rsvp, only: [:show, :edit, :update, :destroy]
+  before_action :set_rsvp#, only: [:show, :edit, :update, :destroy]
 
   # GET /rsvps
   # GET /rsvps.json
   def index
-    @rsvps = Rsvp.all
+    # @rsvps = Rsvp.all
+    redirect_to root_url
   end
 
   # GET /rsvps/1
@@ -14,8 +15,8 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/new
   def new
-    if session[:registration_code].present?
-      redirect_to Rsvp.friendly.find(session[:registration_code])
+    if @rsvp.present?
+      redirect_to @rsvp
     else
       @rsvp = Rsvp.new
     end
@@ -31,7 +32,7 @@ class RsvpsController < ApplicationController
     @rsvp = Rsvp.new(rsvp_params)
     respond_to do |format|
       if @rsvp.save
-        session[:registration_code] = @rsvp.slug
+        self.current_rsvp = @rsvp
         format.html { redirect_to @rsvp, notice: 'Rsvp was successfully created.' }
         format.json { render :show, status: :created, location: @rsvp }
       else
@@ -68,7 +69,8 @@ class RsvpsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_rsvp
-      @rsvp = Rsvp.friendly.find(params[:id])
+      @rsvp = current_rsvp
+    rescue ActiveRecord::RecordNotFound
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

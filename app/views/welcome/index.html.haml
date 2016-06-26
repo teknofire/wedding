@@ -7,8 +7,8 @@
         %h3 October 10th, 2016 - Chena Hot Springs - Fairbanks, Alaska
 
         %br/
-        - if params[:code]
-          = link_to 'RSVP', edit_rsvp_path(id: params[:code]), class: 'btn btn-default btn-lg'
+        - if current_rsvp.present?
+          = link_to 'Update RSVP?', edit_rsvp_path(current_rsvp), class: 'btn btn-default btn-lg'
         - else
           = link_to 'RSVP', new_rsvp_path, class: 'btn btn-default btn-lg'
 
