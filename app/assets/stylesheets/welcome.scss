@@ -4,6 +4,8 @@
 
 @import 'https://fonts.googleapis.com/css?family=Cormorant+SC';
 
+$title-color: #8F3D52;
+
 @mixin vertical-align($position: relative) {
   position: $position;
   top: 50%;
@@ -28,7 +30,7 @@ input {
   background-color: rgba(255, 255, 255, 0.8);
   color: #fff;
   a, .navbar-brand, .navbar-nav > li > a {
-    color: #C00000;
+    color: $title-color;
     text-shadow: 1px 1px 2px rgba(0,0,0, 0.5);
   }
 }
@@ -71,7 +73,7 @@ input {
   }
   h1,h2 {
     font-weight: 300;
-    color: #C00000;
+    color: $title-color;
     margin-top: 60px;
   }
   li {
@@ -90,17 +92,19 @@ input {
   }
 
   a {
-    padding: 20px;
+    padding: 10px 0px 20px 0px;
     border-radius: 8px;
+    border: 1px solid #efefef;
+    transition: all 0.25s;
     &:hover {
       border: 1px solid #efefef; background: #efefef;
     }
   }
 
   h1,h2 {
-    text-align:center;
+    text-align:left;
     font-weight: 300;
-    color: #C00000;
+    color: $title-color;
   }
 
   img {
