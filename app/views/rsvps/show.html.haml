@@ -9,29 +9,15 @@
 #details.wedding-details
   .cover
     .container
-      %h2 Wedding details
-      %p
-        We will be having our wedding at
-        = link_to 'Chena Hot Springs Resort', 'http://www.chenahotsprings.com/'
-        (#{link_to 'map', root_url + '#map'})
-      %h2 When & Where:
-      %p
-        Oct. 10th, 2016 - 10:00am
-        %br/
-        Chena Hot Springs Resort
-        %br/
-        Chena Room
-        %br/
+      = render 'venue'
 
-        * Brunch will be provided
-
-      %h2 After:
-      %p
-        Please feel free to stay longer and take part in the available activies at the resort.
-        .text-center
-          %ul.nav
-            %li= link_to 'Summer', 'http://www.chenahotsprings.com/summer-activities/'
-            %li= link_to 'Winter', 'http://www.chenahotsprings.com/winter-activities/'
+      %h2 Resort Activities
+      %P
+        After the wedding and brunch please feel free to enjoy the hot springs or other resort activities.
+      .text-center
+        %ul.nav
+          %li= link_to 'Summer', 'http://www.chenahotsprings.com/summer-activities/'
+          %li= link_to 'Winter', 'http://www.chenahotsprings.com/winter-activities/'
 
       #registry.registry
         %h2 Gift Registry

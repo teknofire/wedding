@@ -67,6 +67,10 @@ class RsvpsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
     end
 
+    def base_url
+      rsvp_path
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def rsvp_params
       params.require(:rsvp).permit(:email, :name, :coming, :overnight, :additional_guest, :message)

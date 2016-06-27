@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     session[:registration_code] = rsvp.slug
   end
 
+  def base_url
+    root_url
+  end
+  helper_method :base_url
+
   def current_rsvp
     Rsvp.friendly.find(session[:registration_code])
   rescue ActiveRecord::RecordNotFound

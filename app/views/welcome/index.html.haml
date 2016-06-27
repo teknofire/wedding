@@ -7,18 +7,7 @@
 #details.wedding-details
   .cover
     .container
-      %h2 Wedding details
-      %p
-        We will be having our wedding at
-        = link_to 'Chena Hot Springs Resort', 'http://www.chenahotsprings.com/'
-        (#{link_to 'map', root_url + '#map'})
-      %h2 When & Where:
-      %p
-        Oct. 10th, 2016
-        %br/
-        Chena Hot Springs Resort
-        %br/
-        Chena Room
+      = render 'rsvps/venue'
 
       #registry.registry
         %h2 Gift Registry
