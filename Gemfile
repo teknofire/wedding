@@ -31,7 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'rails-assets-bootstrap', '3.3.6', source: 'https://rails-assets.org'
+gem 'rails-assets-bootstrap', '3.3.6', source: 'http://insecure.rails-assets.org'
 gem 'haml'
 gem 'simple_form'
 gem 'friendly_id', '~> 5.1.0'
