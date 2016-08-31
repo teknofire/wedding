@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'reports/index'
+
   resource :rsvp
+  resources :reports
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,20 @@
+.panel.panel-default
+  .panel-heading
+    %h1.panel-title RSVPs
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Coming?
+        %th Guests
+        %th Message
+    %tbody
+      - @rsvps.each do |rsvp|
+        %tr
+          %td
+            = rsvp.name
+          %td= rsvp.email
+          %td= rsvp.coming ? 'Yes' : 'No'
+          %td= rsvp.additional_guest
+          %td= rsvp.message
